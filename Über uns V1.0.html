@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@900&family=Noto+Sans:wght@100&family=Nunito:wght@200&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="x-icon" href="Mein Projekt-1.jpg">
+    <style>
+        /* Navbar-Stile */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: #5c5c5c;
+            color: #526D82 ;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            margin-right: 20px;
+            color: rgb(255, 255, 255);
+        }
+
+        body {
+            font-family: 'Merriweather', serif;
+            font-family: 'Noto Sans', sans-serif;
+            font-family: 'Nunito', sans-serif;
+            font-family: 'Roboto Condensed', sans-serif;
+            background-color: #27374D;
+        }
+
+        .navbar-links {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar-links li {
+            margin-left: 10px;
+        }
+
+        .navbar-links a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            transition: opacity 0.3s;
+        }
+
+        .navbar-links a:hover {
+            opacity: 0.7;
+        }
+
+        /* Medienabfragen für Handys */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+
+            .navbar-links li {
+                margin: 10px 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .container {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+
+        .pic {
+            width: 100%;
+            max-width: 400px;
+            margin: 10px;
+            box-shadow: 0px 0px 10px rgb(7, 7, 7);
+            border-radius: 10px;
+        }
+
+        .pic-caption {
+            color: #ffffff;
+            margin-top: 10px;
+        }
+
+        .pic-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+            color: #000000;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            margin-top: 50px;
+        }
+
+        .hello4 {
+            font-size: 255%;
+        }
+
+        body {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(LOL2.jpeg);
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+    </style>
+</head>
+<body>
+<nav class="navbar">
+    <a class="navbar-brand" href="#">Über uns</a>
+    <ul class="navbar-links">
+        <li><a href="https://naturpicture.github.io/Natur.Pictures/">Home</a></li>
+        <li><a href="#">Über uns</a></li>
+        <li><a href="#">Galerie</a></li>
+        <li><a href="#">Kontakt</a></li>
+    </ul>
+</nav>
+
+<!-- Restlicher Inhalt der Webseite -->
+
+<h1 class="Hello2">Natur.Picutres</h1>
+<h1 class="Hello3">I have a deep appreciation for photography, and being from Germany adds an extra layer of inspiration to my work. Germany's rich history, diverse landscapes, and vibrant culture provide endless opportunities to capture stunning images. From the medieval castles along the Rhine to the bustling streets of Berlin, there is a story waiting to be told in every frame. Photography allows me to showcase the beauty and uniqueness of my homeland while also connecting with people from different parts of the world who share the same passion. Through my lens, I aim to capture the essence of Germany and share it with others, inviting them to experience the rich tapestry of my country's heritage and natural wonders.</h1>
+
+<div class="pic-row">
+    <div class="container">
+        <img class="pic" src="20230426074512_IMG_0759.jpg">
+        <p class="pic-caption">600,00mm   ƒ/6,3   ISO 1600 1/1600 s</p>
+    </div>
+    <div class="container">
+        <img class="pic" src="vogel 6.3.2023 neu-2.jpg">
+        <p class="pic-caption">600,00mm  ƒ/6,3  ISO 1000 1/2000 s</p>
+    </div>
+</div>
+
+<div class="pic-row">
+    <div class="container">
+        <img class="pic" src="IMG_8885.jpg">
+        <p class="pic-caption">600,00mm ƒ/6,3 ISO 1600 1/320 s</p>
+    </div>
+    <div class="container">
+        <img class="pic" src="IMG_8123.jpg">
+        <p class="pic-caption">600,00mm ƒ/6,3 ISO 1600 1/4000 s</p>
+    </div>
+</div>
+
+
+
+<h1 class="Hello4">dadadadawd3@gmail.com</h1>
+</body>
+</html>
