@@ -1,166 +1,758 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@900&family=Noto+Sans:wght@100&family=Nunito:wght@200&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" type="x-icon" href="Mein Projekt-1.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>VISIONEN • Fotografie neu gedacht</title>
     <style>
-        /* Navbar-Stile */
-        .navbar {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            background-color: #5c5c5c;
-            color: #526D82 ;
+        :root {
+            --primary-color: #0071e3;
+            --background-light: #fbfbfd;
+            --text-light: #1d1d1f;
+            --text-secondary-light: #86868b;
+            --background-dark: #000000;
+            --text-dark: #f5f5f7;
+            --text-secondary-dark: #a1a1a6;
+            --gradient-blue: linear-gradient(135deg, #2374f7 0%, #4ca5ff 100%);
+            --gradient-purple: linear-gradient(135deg, #5e5ce6 0%, #bf5af2 100%);
+            --gradient-pink: linear-gradient(135deg, #ff375f 0%, #ff9f0a 100%);
+            --gradient-mint: linear-gradient(135deg, #66d4cf 0%, #00c7be 100%);
         }
 
-        .navbar-brand {
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-decoration: none;
-            margin-right: 20px;
-            color: rgb(255, 255, 255);
-        }
-
-        body {
-            font-family: 'Merriweather', serif;
-            font-family: 'Noto Sans', sans-serif;
-            font-family: 'Nunito', sans-serif;
-            font-family: 'Roboto Condensed', sans-serif;
-            background-color: #27374D;
-        }
-
-        .navbar-links {
-            list-style-type: none;
+        * {
             margin: 0;
             padding: 0;
-            display: flex;
-        }
-
-        .navbar-links li {
-            margin-left: 10px;
-        }
-
-        .navbar-links a {
-            color: #fff;
-            text-decoration: none;
-            padding: 10px;
-            transition: opacity 0.3s;
-        }
-
-        .navbar-links a:hover {
-            opacity: 0.7;
-        }
-
-        /* Medienabfragen für Handys */
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                align-items: center;
-                width: 100%;
-            }
-
-            .navbar-links li {
-                margin: 10px 0;
-                width: 100%;
-                height: 100%;
-            }
-        }
-
-        .container {
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-            margin-top: 50px;
-        }
-
-        .pic {
-            width: 100%;
-            max-width: 400px;
-            margin: 10px;
-            box-shadow: 0px 0px 10px rgb(7, 7, 7);
-            border-radius: 10px;
-        }
-
-        .pic-caption {
-            color: #ffffff;
-            margin-top: 10px;
-        }
-
-        .pic-row {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            margin-bottom: 30px;
-            color: #000000;
-        }
-
-        h1 {
-            text-align: center;
-            color: #ffffff;
-            margin-top: 50px;
-        }
-
-        .hello4 {
-            font-size: 255%;
+            box-sizing: border-box;
+            font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif;
+            transition: color 0.3s ease, background-color 0.3s ease;
         }
 
         body {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(LOL2.jpeg);
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center;
+            background-color: var(--background-light);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.47059;
+            font-weight: 400;
+            letter-spacing: -0.022em;
         }
 
+        body.dark-mode {
+            background-color: var(--background-dark);
+            color: var(--text-dark);
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background-color: rgba(251, 251, 253, 0.8);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 max(22px, env(safe-area-inset-left));
+            height: 48px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .dark-mode header {
+            background-color: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 24px;
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+
+        nav ul li a {
+            color: var(--text-secondary-light);
+            text-decoration: none;
+        }
+
+        .dark-mode nav ul li a {
+            color: var(--text-secondary-dark);
+        }
+
+        .dark-mode-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 12px;
+            color: var(--text-secondary-light);
+            font-weight: 400;
+        }
+
+        .dark-mode .dark-mode-toggle {
+            color: var(--text-secondary-dark);
+        }
+
+        section {
+            padding: 80px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero {
+            padding-top: 120px;
+            min-height: 100vh;
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 600;
+            letter-spacing: -0.015em;
+            margin-bottom: 10px;
+            background: var(--gradient-blue);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .dark-mode .hero h1 {
+            background: var(--gradient-purple);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 28px;
+            font-weight: 400;
+            color: var(--text-secondary-light);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            letter-spacing: -0.022em;
+        }
+
+        .dark-mode .hero p {
+            color: var(--text-secondary-dark);
+        }
+
+        .hero-image-container {
+            width: 100%;
+            max-width: 830px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 24px;
+        }
+
+        .hero img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 9/16;
+            will-change: transform;
+            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+            object-fit: cover;
+        }
+
+        .copy-block {
+            max-width: 980px;
+            text-align: center;
+            margin: 0 auto 120px;
+            padding: 0 20px;
+        }
+
+        .copy-block h2 {
+            font-size: 48px;
+            font-weight: 600;
+            letter-spacing: -0.015em;
+            margin-bottom: 24px;
+            background: var(--gradient-pink);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .dark-mode .copy-block h2 {
+            background: var(--gradient-mint);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .copy-block p {
+            font-size: 24px;
+            line-height: 1.33341;
+            color: var(--text-secondary-light);
+            max-width: 600px;
+            margin: 0 auto;
+            letter-spacing: -0.022em;
+        }
+
+        .dark-mode .copy-block p {
+            color: var(--text-secondary-dark);
+        }
+
+        .grid-section {
+            padding: 100px 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .grid-item {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+            background-color: #fff;
+            transform: translateY(80px);
+            opacity: 0;
+            transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dark-mode .grid-item {
+            background-color: #1d1d1f;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .grid-item.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .grid-image-container {
+            width: 100%;
+            padding-top: 133%; /* 3:4 aspect ratio more like Apple */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .grid-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transform: scale(1);
+            transition: transform 2s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .grid-item:hover img {
+            transform: scale(1.04);
+        }
+
+        .grid-item-content {
+            padding: 32px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .grid-item h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            font-weight: 600;
+            letter-spacing: -0.015em;
+        }
+
+        .grid-item p {
+            font-size: 17px;
+            color: var(--text-secondary-light);
+            line-height: 1.4;
+            letter-spacing: -0.022em;
+        }
+
+        .dark-mode .grid-item p {
+            color: var(--text-secondary-dark);
+        }
+
+        .parallax-section {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .parallax-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            background-image: url('4D7A8817.jpg');
+            background-size: cover;
+            background-position: center;
+            will-change: transform;
+            z-index: -1;
+        }
+
+        .parallax-content {
+            text-align: center;
+            background: rgba(251, 251, 253, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 60px;
+            border-radius: 30px;
+            max-width: 680px;
+            transform: translateY(80px);
+            opacity: 0;
+            transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .dark-mode .parallax-content {
+            background: rgba(0, 0, 0, 0.75);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .parallax-content.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .parallax-content h2 {
+            font-size: 48px;
+            margin-bottom: 24px;
+            font-weight: 600;
+            letter-spacing: -0.015em;
+        }
+
+        .parallax-content p {
+            font-size: 21px;
+            line-height: 1.4;
+            color: var(--text-secondary-light);
+            letter-spacing: -0.022em;
+        }
+
+        .dark-mode .parallax-content p {
+            color: var(--text-secondary-dark);
+        }
+
+        .dual-image-section {
+            display: flex;
+            gap: 30px;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto 120px;
+            padding: 0 20px;
+        }
+
+        .dual-image-container {
+            flex: 1;
+            position: relative;
+            padding-top: 140%; /* Taller aspect ratio */
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+            transform: translateY(60px);
+            opacity: 0;
+            transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .dual-image-container.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .dark-mode .dual-image-container {
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .dual-image-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1);
+            transition: transform 2s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .dual-image-container:hover img {
+            transform: scale(1.04);
+        }
+
+        .cta-section {
+            background: var(--gradient-blue);
+            color: white;
+            padding: 120px 20px;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .dark-mode .cta-section {
+            background: var(--gradient-purple);
+        }
+
+        .cta-section h2 {
+            font-size: 48px;
+            margin-bottom: 24px;
+            font-weight: 600;
+            letter-spacing: -0.015em;
+        }
+
+        .cta-section p {
+            font-size: 24px;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+            letter-spacing: -0.022em;
+            line-height: 1.33341;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary-color);
+            font-size: 17px;
+            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 980px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            letter-spacing: -0.022em;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .dark-mode .btn {
+            background-color: rgba(0, 0, 0, 0.2);
+            color: white;
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15);
+        }
+
+        .dark-mode .btn:hover {
+            background-color: rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25), 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            background-color: var(--background-light);
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-secondary-light);
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .dark-mode footer {
+            background-color: var(--background-dark);
+            color: var(--text-secondary-dark);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Apple-typische Animationen */
+        @keyframes fadeUpIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .fade-up.visible {
+            animation: fadeUpIn 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        /* Responsive Design für mobile Geräte */
+        @media (max-width: 900px) {
+            .grid-section {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+                padding: 80px 20px;
+            }
+            
+            .dual-image-section {
+                flex-direction: column;
+                gap: 24px;
+            }
+            
+            .dual-image-container {
+                padding-top: 100%;
+            }
+
+            .copy-block {
+                margin-bottom: 80px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 40px;
+            }
+            
+            .hero p {
+                font-size: 21px;
+            }
+            
+            .copy-block h2, 
+            .parallax-content h2,
+            .cta-section h2 {
+                font-size: 36px;
+            }
+            
+            .copy-block p {
+                font-size: 19px;
+            }
+            
+            .parallax-content {
+                padding: 40px;
+                max-width: 90%;
+            }
+
+            .parallax-content p {
+                font-size: 17px;
+            }
+
+            nav ul li {
+                margin-left: 16px;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .grid-section {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 19px;
+            }
+
+            .copy-block h2, 
+            .parallax-content h2,
+            .cta-section h2 {
+                font-size: 28px;
+            }
+
+            .cta-section p {
+                font-size: 19px;
+            }
+
+            .parallax-content {
+                padding: 32px;
+            }
+
+            nav ul li:not(:last-child) {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
-<nav class="navbar">
-    <a class="navbar-brand" href="#">Über uns</a>
-    <ul class="navbar-links">
-        <li><a href="https://naturpicture.github.io/Natur.Pictures/">Home</a></li>
-        <li><a href="https://naturpicture.github.io/Natur.Picutr/">Über uns</a></li>
-        <li><a href="#">commig soon </a></li>
-        <li><a href="#">commig soon </a></li>
-    </ul>
-</nav>
+    <header>
+        <div class="logo">Natur.pictures</div>
+        <nav>
+            <ul>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Prices</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><button class="dark-mode-toggle" id="darkModeToggle">Appearance</button></li>
+            </ul>
+        </nav>
+    </header>
 
-<!-- Restlicher Inhalt der Webseite -->
+    <section class="hero">
+        <h1 class="fade-up">Moments. Perfectly captured.</h1>
+        <p class="fade-up">Professional photography with artistic standards and technical perfection.</p>
+        <div class="hero-image-container fade-up">
+            <img src="hintergrund2.jpg.JPG" alt="Spektakuläre Fotografie">
+        </div>
+    </section>
 
-<h1 class="Hello2">Natur.Picutres</h1>
-<h1 class="Hello3">I am truly enamored with photography, as it allows me to capture the beauty of the world around me. Through my lens, I can freeze fleeting moments and preserve them for eternity. The art of photography grants me the ability to express myself creatively and see the world from a unique perspective. Whether I'm capturing the vibrant colors of a sunset, the delicate details of a flower, or the candid expressions of people, each photograph tells a story and evokes emotions. Photography is a medium that transcends language barriers, enabling me to connect with others and share my passion for capturing life's precious moments. It brings me great joy to explore new places, seek out hidden gems, and discover the beauty that exists in both the ordinary and extraordinary. With every click of the shutter, I am reminded of the endless possibilities and endless wonders that photography offers..</h1>
-
-<div class="pic-row">
-    <div class="container">
-        <img class="pic" src="20230426074512_IMG_0759.jpg">
-        <p class="pic-caption">600,00mm   ƒ/6,3   ISO 1600 1/1600 s</p>
+    <div class="copy-block">
+        <h2 class="fade-up"> The art of the moment</h2>
+        <p class="fade-up">Every picture tells a story. Using state-of-the-art technology and an eye for the extraordinary, I create timeless photographs that touch and fascinate.</p>
     </div>
-    <div class="container">
-        <img class="pic" src="vogel 6.3.2023 neu-2.jpg">
-        <p class="pic-caption">600,00mm  ƒ/6,3  ISO 1000 1/2000 s</p>
+
+    <section class="grid-section">
+        <div class="grid-item">
+            <div class="grid-image-container">
+                <img src="20230525193253_IMG_2995.jpg" alt="Portrait">
+            </div>
+            <div class="grid-item-content">
+                <h3>Portraits</h3>
+                <p>Authentic snapshots that capture the character and personality.</p>
+            </div>
+        </div>
+        <div class="grid-item">
+            <div class="grid-image-container">
+                <img src="vogel 18.03 ph.jpg" alt="Landschaft">
+            </div>
+            <div class="grid-item-content">
+                <h3>Persons</h3>
+                <p>Expressive images that perfectly capture emotions and moods.</p>
+            </div>
+        </div>
+        <div class="grid-item">
+            <div class="grid-image-container">
+                <img src="4D7A8817.jpg" alt="Mode">
+            </div>
+            <div class="grid-item-content">
+                <h3>Mode</h3>
+                <p>Stylish stagings for professional fashion and editorial photography.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="parallax-section">
+        <div class="parallax-bg"></div>
+        <div class="parallax-content">
+            <h2>Vision and technology</h2>
+            <p>With years of experience and state-of-the-art equipment, images are created that are more than just images – they are emotions, captured for eternity.</p>
+        </div>
     </div>
-</div>
 
-<div class="pic-row">
-    <div class="container">
-        <img class="pic" src="hintergrund.jpg">
-        <p class="pic-caption">600,00mm ƒ/6,3 ISO 1600 1/320 s</p>
+    <div class="copy-block">
+        <h2 class="fade-up">Individual photography</h2>
+        <p class="fade-up">Every project is unique. I work closely with my clients to understand their vision and translate it into impressive visual experiences.</p>
     </div>
-    <div class="container">
-        <img class="pic" src="vogel 18.03 ph.jpg">
-        <p class="pic-caption">600,00mm ƒ/6,3 ISO 1600 1/4000 s</p>
+
+    <div class="dual-image-section">
+        <div class="dual-image-container">
+            <img src="20230525193253_IMG_2995.jpg" alt="Portrait-Beispiel">
+        </div>
+        <div class="dual-image-container">
+            <img src="vogel 18.03 ph.jpg" alt="Porträt-Beispiel">
+        </div>
     </div>
-</div>
 
+    <section class="cta-section">
+        <h2>Let's work together</h2>
+        <p>Together we create images that are memorable and tell stories that touch.</p>
+        <a href="#" class="btn">Contact</a>
+    </section>
 
+    <footer>
+        <p>© 2025 VISIONS • Rethinking photography. All rights reserved.</p>
+    </footer>
 
-<h1 class="Hello4">natur.pictures73@gmail.com</h1>
+    <script>
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        
+        // Check for user preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            body.classList.add('dark-mode');
+        }
+        
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+        });
+        
+        // Parallax Effect für Hero Image
+        const heroImg = document.querySelector('.hero img');
+        const heroContent = document.querySelector('.hero');
+        
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            if (scrollPosition < window.innerHeight) {
+                heroImg.style.transform = `scale(${1 + scrollPosition * 0.0005}) translateY(${scrollPosition * 0.15}px)`;
+            }
+        });
+        
+        // Parallax Effect für Hintergrund
+        const parallaxBg = document.querySelector('.parallax-bg');
+        const parallaxSection = document.querySelector('.parallax-section');
+        
+        window.addEventListener('scroll', () => {
+            const rect = parallaxSection.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            
+            if (rect.top <= windowHeight && rect.bottom >= 0) {
+                // Element ist im Sichtfeld
+                const scrollPosition = rect.top;
+                parallaxBg.style.transform = `translateY(${scrollPosition * 0.2}px)`;
+            }
+        });
+        
+        // Scroll Animation für Elemente
+        const gridItems = document.querySelectorAll('.grid-item');
+        const parallaxContent = document.querySelector('.parallax-content');
+        const fadeElements = document.querySelectorAll('.fade-up');
+        const dualImages = document.querySelectorAll('.dual-image-container');
+        
+        const checkScroll = () => {
+            const triggerBottom = window.innerHeight * 0.85;
+            
+            gridItems.forEach(item => {
+                const itemTop = item.getBoundingClientRect().top;
+                if (itemTop < triggerBottom) {
+                    item.classList.add('visible');
+                }
+            });
+            
+            const contentTop = parallaxContent.getBoundingClientRect().top;
+            if (contentTop < triggerBottom) {
+                parallaxContent.classList.add('visible');
+            }
+            
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                if (elementTop < triggerBottom) {
+                    element.classList.add('visible');
+                }
+            });
+            
+            dualImages.forEach(image => {
+                const imageTop = image.getBoundingClientRect().top;
+                if (imageTop < triggerBottom) {
+                    image.classList.add('visible');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', checkScroll);
+        
+        // Apple-typische verzögerte Animation beim Laden
+        window.addEventListener('load', () => {
+            setTimeout(checkScroll, 300); // Verzögertes Einblenden beim Laden
+        });
+        
+        // Prüfe aktuelle Position
+        checkScroll();
+    </script>
 </body>
 </html>
